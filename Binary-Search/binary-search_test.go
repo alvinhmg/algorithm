@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestBinarySearch_1(t *testing.T) {
+func TestBinarySearch_basic1(t *testing.T) {
 	type args struct {
 		nums   []int
 		target int
@@ -25,14 +25,14 @@ func TestBinarySearch_1(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := BinarySearch_1(tt.args.nums, tt.args.target); got != tt.want {
+			if got := BinarySearch_basic1(tt.args.nums, tt.args.target); got != tt.want {
 				t.Errorf("BinarySearch_1() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestBinarySearch_2(t *testing.T) {
+func TestBinarySearch_basic2(t *testing.T) {
 	type args struct {
 		nums   []int
 		target int
@@ -54,7 +54,7 @@ func TestBinarySearch_2(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := BinarySearch_2(tt.args.nums, tt.args.target); got != tt.want {
+			if got := BinarySearch_basic2(tt.args.nums, tt.args.target); got != tt.want {
 				t.Errorf("BinarySearch_2() = %v, want %v", got, tt.want)
 			}
 		})

@@ -28,7 +28,7 @@ title: 二分查找
 // @return -1 没有找到
 // 左闭右闭区间版本  [left, right]
 
-func BinarySearch_1(nums []int, target int) int {
+func BinarySearch_basic1(nums []int, target int) int {
 	left, right := 0, len(nums)-1
 	for left <= right {
 		mid := left + (right-left)/2
@@ -44,7 +44,7 @@ func BinarySearch_1(nums []int, target int) int {
 }
 
 // 左闭右开区间版本 【left， right）
-func BinarySearch_2(nums []int, target int) int {
+func BinarySearch_basic2(nums []int, target int) int {
 	left, right := 0, len(nums)-1
 	for left < right {
 		mid := left + (right-left)/2
@@ -57,4 +57,41 @@ func BinarySearch_2(nums []int, target int) int {
 		}
 	}
 	return -1
+}
+
+// 查找左边界的二分查找	
+func binarySearch_findLeftBound(nums []int, target int) int {
+	left, right := 0, len(nums)-1
+	result := -1
+	for left <= right {
+		mid := left + (right-left)/2
+		if nums[mid] < target {
+			left = mid + 1 // 搜索区间变为[mid+1, right]
+		} else if nums[mid] > target {
+			right = mid - 1 // 搜索区间变为[left, mid-1]
+		} else if nums[mid] == target {
+			result = mid  // 记录位置，继续向左搜索
+			right = mid - 1 // !! 别返回，锁定左侧区间继续搜索
+		}
+	}
+	return result
+}
+
+// 查找右边界的二分查找
+
+func binarySearch_findRightBound(nums []int, target int) int {
+	left, right := 0, len(nums)-1
+	result := -1
+	for left <= right{
+		mid := left + (right-left)/2
+		if nums[mid] < target {
+			left = mid + 1 
+		} else if nums[mid] > target {
+			right = mid - 1
+		} else if nums[mid] == target {
+			result = mid // 记录位置，继续向右搜索
+			left = mid + 1 //!! 别返回，锁定右侧区间继续搜索
+		}
+	}
+	return result
 }
