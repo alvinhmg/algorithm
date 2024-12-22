@@ -5,7 +5,6 @@ import "testing"
 func Test_firstBadVersion(t *testing.T) {
 	type args struct {
 		n int
-		bad int
 	}
 	tests := []struct {
 		name string
