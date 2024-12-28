@@ -1,4 +1,12 @@
 package ALGORITHM
+/**
+@author: alvin
+@time: 2024-12-22 22:30
+@desc:	寻找K个最接近的元素
+思路：
+	二分查找，找到窗口的左边界，然后返回窗口内的元素
+leetcode: https://leetcode.cn/problems/find-k-closest-elements/?envType=study-plan-v2&envId=binary-search
+*/
 
 func findKClosestElements(nums []int, k int, x int) []int {
 	left, right := 0, len(nums)-k // 定义左右边界，注意右边界的最大值为 len(nums)-k
