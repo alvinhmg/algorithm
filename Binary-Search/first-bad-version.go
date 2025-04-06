@@ -13,6 +13,6 @@ func firstBadVersion(n int) int {
 	return sort.Search(n, func(i int) bool { return isBadVersion(i) })
 }
 
-func isBadVersion(i int) bool {
+func isBadVersion(_ int) bool {
 	return true
 }
